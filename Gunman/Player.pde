@@ -23,7 +23,13 @@ class Player {
     popMatrix(); //<--rotation ends here
   }
 
+
+
+
   void move() {
+    loc.x += vel.x;
+    loc.y += vel.y;
+
     if (keys['w']) {
       if (loc.y-Player.height/2<=0) { //if bullets hits an end of the screen
         loc.y+=6;

@@ -32,7 +32,6 @@ void setup() {
 
 void draw() {
   background(255);
-
   if (level==0) { //initial level or starting screen
     fill(255, 255, 0, 100);
     rectMode(CENTER);
@@ -101,29 +100,29 @@ void draw() {
   for (int i = walls.size () -1; i>=0; i--) { //forLoop to create walls
     Wall w = walls.get(i);
     w.display();
-    //    if (w.contactPlayerUp()) { //When Player is moving up when it contacts wall
-    //      wallU=true;
-    //    } else {
-    //      wallU=false;
-    //    }
-    //    if (w.contactPlayerDown()) { //When Player is moving down when it contacts wall
-    //      wallD=true;
-    //    } else {
-    //      wallD=false;
-    //    }
-    //    if (w.contactPlayerRight()) { //When Player is moving right when it contacts wall
-    //      wallR=true;
-    //    } else {
-    //      wallR=false;
-    //    }
-    //    if (w.contactPlayerLeft()) { //When Player is moving left when it contacts wall
-    //      wallL=true;
-    //    } else {
-    //      wallL=false;
-    //    }
+    if (w.contactPlayerUp(p)) { //When Player is moving up when it contacts wall
+      wallU=true;
+    } else {
+      wallU=false;
+    }
+    if (w.contactPlayerDown(p)) { //When Player is moving down when it contacts wall
+      wallD=true;
+    } else {
+      wallD=false;
+    }
+    if (w.contactPlayerRight(p)) { //When Player is moving right when it contacts wall
+      wallR=true;
+    } else {
+      wallR=false;
+    }
+    if (w.contactPlayerLeft(p)) { //When Player is moving left when it contacts wall
+      wallL=true;
+    } else {
+      wallL=false;
+    }
   }
 
-  p.display();
+  p.display();   //PLAYER JUNK
   p.move();
 
   if (level == -1) { //objects to be loaded in the preparation level
